@@ -1,0 +1,35 @@
+.recipe-form {
+    background: #fff0f2;
+    /* мягкий розовый фон */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-form input,
+.recipe-form select,
+.recipe-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffd4e2;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-submit {
+    background: #ffb07c;
+    /* персиковая кнопка */
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: #ffa564;
+}

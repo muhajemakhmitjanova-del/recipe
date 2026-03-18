@@ -1,0 +1,41 @@
+{% block content %}
+<header class="header">
+
+    <!-- верх -->
+    <div class="top-header">
+
+        <div class="logo">
+            🍰 Recipes
+        </div>
+
+        <div class="user-menu">
+            <a href="{% url 'login' %}" class="user-btn">Вход</a>
+            <a href="{% url 'register' %}" class="user-btn">Регистрация</a>
+            <a href="#" class="user-btn">⭐ Избранные</a>
+        </div>
+
+    </div>
+
+    <!-- страны -->
+    <div class="menu">
+        <span class="menu-title">Страны:</span>
+
+        {% for country in countries %}
+        <a href="{% url 'country_detail' country.id %}" class="menu-btn">{{ country.name }}</a>
+        {% endfor %}
+    </div>
+
+
+
+    <!-- со временем -->
+    <div class="menu">
+        <span class="menu-title">Когда готовить:</span>
+
+        {% for w in whens %}
+        <a href="{% url 'when_detail' w.id %}" class="menu-btn">{{ w.name }}</a>
+        {% endfor %}
+    </div>
+
+   
+</header>
+{% endblock %}

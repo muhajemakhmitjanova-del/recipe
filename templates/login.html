@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<div class="form-container">
+
+    <h2>Вход</h2>
+
+    <!-- Вывод сообщений об ошибках -->
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p class="error-message">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit" class="btn">Войти</button>
+    </form>
+
+    <p class="register-text">Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+
+</div>
+
+{% include 'components/footer.html' %}
+{% endblock %}

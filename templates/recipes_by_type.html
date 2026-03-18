@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<a href="{% url 'main_page' %}" class="back-btn">« Назад</a>
+
+<h2>Рецепты: {{ selected_food.name }}</h2>
+
+<div class="recipes">
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <a href="{% url 'recipe_detail' recipe.id %}" style="text-decoration: none; color: inherit;">
+            {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+            {% endif %}
+            <h4>{{ recipe.name }}</h4>
+            <p><b>Страна:</b> {{ recipe.country.name }}</p>
+            <p><b>Тип:</b> {{ recipe.foods.name }}</p>
+            <p>
+                <b>Со временем:</b>
+                {% for w in recipe.when.all %}
+                {{ w.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </a>
+    </div>
+    {% empty %}
+    <p>Рецептов этого типа нет.</p>
+    {% endfor %}
+</div>
+
+
+
+
+{% include 'components/footer.html' %}
+
+{% endblock %}

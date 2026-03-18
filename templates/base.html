@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="{% static 'style.css' %}">
+   <link rel="stylesheet" href="{% static 'recipes.css' %}">
+   <link rel="stylesheet" href="{% static 'recipes_by.css' %}">
+   <link rel="stylesheet" href="{% static 'register_login.css' %}">
+   <link rel="stylesheet" href="{% static 'change.css' %}">
+
+    <title>{% block title %}Recipes{% endblock %}</title>
+</head>
+
+<body>
+
+{% include 'components/header.html' %}
+<main>
+{% block content %}
+{% endblock %}
+</main>
+<!-- {% include 'components/footer.html' %} -->
+</body>
+
+</html>

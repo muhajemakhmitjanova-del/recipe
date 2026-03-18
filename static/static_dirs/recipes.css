@@ -1,0 +1,82 @@
+/* Контейнер страницы рецепта */
+.recipe-page-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #fcf2e3; /* светлый персиковый фон */
+}
+
+/* Список рецептов слева */
+.recipe-list {
+    flex: 0 0 220px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.recipe-list h3 {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.recipe-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recipe-list ul li {
+    margin-bottom: 8px;
+}
+
+.recipe-list ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 4px 6px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.recipe-list ul li.active a,
+.recipe-list ul li a:hover {
+    background: #ffd4c1; /* пастельный персиковый для активного рецепта */
+}
+
+/* Основной блок рецепта */
+.recipe-detail {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Назад */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #ffd4c1;
+}
+
+/* Изображение рецепта */
+.recipe-image img {
+    width: 1000px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 12px;
+}

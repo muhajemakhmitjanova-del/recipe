@@ -1,0 +1,295 @@
+/* Body */
+body {
+    background: #fcf2e3;
+    /* светлый персиковый фон */
+    color: #000;
+    /* текст черный */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Основной контейнер */
+.container {
+    max-width: 1900px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Сайдбар */
+.sidebar {
+    flex: 1 1 200px;
+    background: #fff;
+    /* белый блок на светлом фоне */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: #000;
+    font-size: 18px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #ffd4e2;
+    /* мягкий розовый при наведении */
+}
+
+/* Основной блок рецептов */
+.recipes {
+    flex: 3 1 700px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка рецепта */
+.recipe-card {
+    background: #fff;
+    /* белая карточка */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-height: 500px;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.recipe-card h4,
+.recipe-card p {
+    margin: 10px;
+    color: #000;
+    /* текст черный */
+}
+
+/* Кнопки редактирования и удаления */
+.edit-btn,
+.delete-btn {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    background: #ffd0d0;
+    /* белые кнопки */
+    color: #000;
+    transition: background 0.3s, color 0.3s;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background: #ffd4c1;
+    /* пастельный персиковый при наведении */
+    color: #000;
+}
+
+/* Пагинация */
+.pagination a {
+    margin: 0 8px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.pagination span {
+    margin: 0 8px;
+    font-weight: bold;
+}
+
+/* Header */
+.header {
+    margin-bottom: 30px;
+    background: #ffd4e2;
+    /* мягкий пастельный розовый */
+    padding: 15px;
+    border-radius: 12px;
+    color: #000;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    /* черный логотип */
+}
+
+.user-menu .user-btn {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #fff;
+    /* изначально белые */
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.user-menu .user-btn:hover {
+    background: #feefef;
+    /* пастельный персиковый */
+    color: #000;
+}
+
+/* Меню фильтров стран и времени */
+.menu {
+    margin-bottom: 15px;
+}
+
+.menu-title {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #000;
+    /* черный текст */
+}
+
+.menu-btn {
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 5px 10px;
+    background: #fff;
+    /* белые кнопки */
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+    background: #feefef;
+    /* пастельный персиковый при наведении или активном */
+    color: #000;
+}
+
+/* Фильтры типов */
+.menu-btn,
+.sidebar ul li a {
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #fff;
+    /* белые изначально */
+    color: #000;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: none;
+    /* без тени карточек */
+    cursor: pointer;
+}
+
+/* Наведение */
+.menu-btn:hover,
+.sidebar ul li a:hover {
+    background: #fff1eb;
+    /* пастельный персиковый при наведении */
+    color: #000;
+}
+
+/* Активный / выбранный фильтр */
+.menu-btn.active,
+.sidebar ul li a.active {
+    background: #ffd4c1;
+    /* пастельный персиковый при нажатии */
+    color: #000;
+}
+
+/* Для sidebar — сделать курсор pointer */
+.sidebar ul li a {
+    display: block;
+}
+
+/* Чтобы типы не выглядели как карточки */
+.menu-btn,
+.sidebar ul li a {
+    transform: none;
+    transition: background 0.3s;
+}
+
+/* Основной контейнер с флексом */
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #fcf2e3;
+    /* светлый персиковый фон */
+}
+
+footer {
+    margin-top: 100px;
+    background: #ffe1e8;
+    color: #000;
+    padding: 90px 0;
+    text-align: center;
+    border-top: 1px solid #ffd4e2;
+
+}
+
+main {
+    min-height: auto;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.search-bar input[type="text"] {
+    width: 690px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px     ;
+    font-size: 14px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    border: none;
+    background: #ffd4c1;
+    color: #000;
+    border-radius:  12px ;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #ffc1a6;
+}
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}

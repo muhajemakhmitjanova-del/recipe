@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<div class="search-bar">
+    <form method="get" action="">
+        <input type="text" name="q" placeholder="Поиск рецепта..." value="{{ request.GET.q }}">
+        <button type="submit">🔍 Найти</button>
+    </form>
+</div>
+<div class="container">
+
+
+
+
+    <aside class="sidebar">
+        <h3>Виды</h3>
+        <ul>
+            {% for food in foods %}
+            <li><a href="{% url 'recipes_by_type' food.id %}">{{ food.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+
+    <section class="recipes">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <a href="/recipe/{{ recipe.id }}" style="text-decoration: none; color: inherit;">
+                {% if recipe.image %}
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+                {% endif %}
+                <h4>{{ recipe.name | title   }}</h4>
+                <p><b>Страна:</b> {{ recipe.country.name | capfirst  }}</p>
+                <p><b>Вид:</b> {{ recipe.food.name | capfirst }}</p>
+                <p>
+                    <b>Когда готовить:</b>
+                    {% for w in recipe.when.all %}
+                    {{ w.name | title | default:"-" }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+
+                </p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'change_recipe' recipe.pk %}" class="edit-btn">✏ Изменить</a>
+                <a href="{% url 'delete_recipe' recipe.pk %}" class="delete-btn">Удалить</a>
+                {% endif %}
+            </a>
+
+
+        </div>
+        {% endfor %}
+    </section>
+
+</div>
+
+
+<div class="pagination">
+    {% if recipes.has_previous %}
+    <a href="?page={{ recipes.previous_page_number }}">« Назад</a>
+    {% endif %}
+
+    <span>Страница {{ recipes.number }} из {{ recipes.paginator.num_pages }}</span>
+
+    {% if recipes.has_next %}
+    <a href="?page={{ recipes.next_page_number }}">Вперёд »</a>
+    {% endif %}
+</div>
+
+{% include 'components/footer.html' %}
+{% endblock %}

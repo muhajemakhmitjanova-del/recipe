@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block content %}
+
+{% get_when as whens %}
+<div class="recipe-page-container">
+
+    <!-- Список рецептов слева -->
+    <aside class="recipe-list">
+        <h3>Рецепт</h3>
+        <ul>
+            {% for r in recipes %}
+            <li {% if r.id == recipe.id %}class="active" {% endif %}>
+                <a href="{% url 'recipe_detail' r.id %}">{{ r.name | capfirst}}</a>
+            </li>
+            {% endfor %}
+
+            <div class="recipe-text">
+                {{ recipe.recipe_text | linebreaks | capfirst }}
+            </div>
+        </ul>
+    </aside>
+
+    <!-- Основной блок с выбранным рецептом -->
+    <section class="recipe-detail">
+        <a href="{% url 'main_page' %}" class="back-btn">« Назад</a>
+
+        <h2>{{ recipe.name }}</h2>
+
+        {% if recipe.image %}
+        <div class="recipe-image">
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+        </div>
+        {% endif %}
+
+        <p><b>Страна:</b> {{ recipe.country.name }}</p>
+
+        <p><b>Вид:</b> {{ recipe.foods.name }}</p>
+
+        <p><b>Когда готовить:</b>
+            {% for w in recipe.when.all %}
+            {{ w.name | lower }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </section>
+
+</div>
+{% include 'components/footer.html' %}
+{% endblock %}
