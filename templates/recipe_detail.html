@@ -12,14 +12,13 @@
         <ul>
             {% for r in recipes %}
             <li {% if r.id == recipe.id %}class="active" {% endif %}>
-                <a href="{% url 'recipe_detail' r.id %}">{{ r.name | capfirst}}</a>
+                <a href="{% url 'recipe_detail' r.id %}">{{ r.name | capfirst }}</a>
             </li>
             {% endfor %}
-
-            <div class="recipe-text">
-                {{ recipe.recipe_text | linebreaks | capfirst }}
-            </div>
         </ul>
+        <div class="recipe-text">
+            {{ recipe.recipe_text | linebreaks | capfirst }}
+        </div>
     </aside>
 
     <!-- Основной блок с выбранным рецептом -->
@@ -36,7 +35,7 @@
 
         <p><b>Страна:</b> {{ recipe.country.name }}</p>
 
-        <p><b>Вид:</b> {{ recipe.foods.name }}</p>
+        <p><b>Вид:</b> {{ recipe.foods.all|join:", " }}</p>
 
         <p><b>Когда готовить:</b>
             {% for w in recipe.when.all %}
