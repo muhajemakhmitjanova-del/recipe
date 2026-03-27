@@ -38,7 +38,6 @@ class When(models.Model):
 
 
 class Recipe(models.Model):
-
     country = models.ForeignKey(
         Country,
         on_delete=models.CASCADE,
