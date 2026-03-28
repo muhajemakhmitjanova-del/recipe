@@ -8,3 +8,6 @@ class RecipeConfig(AppConfig):
 
     def ready(self):
         import main.signals
+        
+        
+        

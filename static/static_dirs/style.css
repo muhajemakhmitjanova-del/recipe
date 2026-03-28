@@ -293,3 +293,36 @@ main {
     margin-top: 20px;
     text-align: center;
 }
+
+
+/* Блок рекламы */
+.ads {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 800px;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+/* Заголовок */
+.ads h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Текст */
+.ads p {
+    font-size: 15px;
+    color: #666;
+}
+
+/* Эффект при наведении */
+.ads:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
