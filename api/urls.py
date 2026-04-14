@@ -1,13 +1,18 @@
 from .views import *
-from django.urls import path,include
+from django.urls import path, include
 
 urlpatterns = [
-    path('recipes/', recipe_views),
-    path('recipes/<int:pk>/', recipe_detail),
-    path('countries/', country_views),
-    path('countries/<int:pk>/', country_detail),
-    path('foods/', food_views),
-    path('foods/<int:pk>/', food_detail),
-    path('whens/', when_views),
-    path('whens/<int:pk>/', when_detail),
+    path('', include('api.yasg')),
+
+    path('recipes/', RecipeList.as_view()),
+    path('recipes/<int:pk>/', RecipeDetail.as_view()),
+
+    path('countries/', CountryList.as_view()),
+    path('countries/<int:pk>/', CountryDetail.as_view()),
+
+    path('foods/', FoodList.as_view()),
+    path('foods/<int:pk>/', FoodDetail.as_view()),
+
+    path('whens/', WhenList.as_view()),
+    path('whens/<int:pk>/', WhenDetail.as_view()),
 ]

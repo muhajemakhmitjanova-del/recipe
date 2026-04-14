@@ -50,11 +50,12 @@ class Recipe(models.Model):
         related_name='recipes'
     )
 
-    when = models.ManyToManyField(
-    When,
-    blank=True,
-    related_name='recipes'
-)
+    when = models.ForeignKey(
+        When,
+        blank=True,
+        related_name='recipes',
+        on_delete=models.CASCADE
+    )
 
     name = models.CharField(
         verbose_name='Название',
