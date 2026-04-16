@@ -12,12 +12,3 @@ lib/
 media/
 madia
 
-
-node_modules/
-
-dist/
-
-build/
-
-venv/
-
