@@ -1,6 +1,7 @@
 venv/
 venv
 
+static_root/
 db.sqlite3
 
 migrations
