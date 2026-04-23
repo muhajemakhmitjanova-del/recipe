@@ -3,6 +3,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('api.yasg')),
+    path("auth/", include("api.auth.urls")),
 
     path('recipes/', RecipeList.as_view()),
     path('recipes/<int:pk>/', RecipeDetail.as_view()),
